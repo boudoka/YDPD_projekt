@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prohlídka</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <style>
+        body,
+        html {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Times New Roman';
+            margin: 0;
+            overflow-y: auto;
+            background-color: #D1BB9E;
+        }
+
+        .button-container {
+            text-align: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #panorama {
+            margin-top: 20px;
+            height: 800px;
+            width: 1200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <a href="index.html"><button>Hlavní strana</button></a>
+        <a href="galerie.html"><button>Galerie</button></a>
+        <a href="modely.html"><button>Modely</button></a>
+    </div>
+
+    <div id="panorama"></div>
+    <script>
+        pannellum.viewer('panorama', {
+            "default": {
+                "preview": "models/barak-poster.png",
+                "firstScene": "Scena1_rohVO",
+                "author": "Kateřina Boudová",
+                "sceneFadeDuration": 1000
+            },
+
+            "scenes": {
+                "Scena1_rohVO": {
+                    "title": "Roh ulice Václavské náměstí a Opletalova",
+                    "hfov": 110,
+                    "pitch": -3,
+                    "yaw": 10,
+                    "type": "equirectangular",
+                    "panorama": "panorama/Scena1.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": 5,
+                            "yaw": 25,
+                            "type": "scene",
+                            "text": "Roh budovy v Opletalově ulici",
+                            "sceneId": "Scena2_rohOB"
+                        }
+                    ]
+                },
+
+                "Scena2_rohOB": {
+                    "title": "Roh budovy v Opletalově ulici",
+                    "hfov": 180,
+                    "yaw": 5,
+                    "type": "equirectangular",
+                    "panorama": "panorama/Scena2.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": 30,
+                            "yaw": 37.1,
+                            "type": "scene",
+                            "text": "Zadní část budovy",
+                            "sceneId": "Scena3_vzadu",
+                            "targetYaw": -23,
+                            "targetPitch": 2
+                        }
+                    ]
+                },
+
+                "Scena3_vzadu": {
+                    "title": "Zadní část budovy",
+                    "hfov": 110,
+                    "yaw": 5,
+                    "type": "equirectangular",
+                    "panorama": "panorama/Scena3.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -20,
+                            "yaw": 25,
+                            "type": "scene",
+                            "text": "Roh budovy na Václavském náměstí",
+                            "sceneId": "Scena4_rohVB",
+                            "targetYaw": -23,
+                            "targetPitch": 2
+                        }
+                    ]
+                },
+
+                "Scena4_rohVB": {
+                    "title": "Roh budovy na Václavském náměstí",
+                    "hfov": 110,
+                    "yaw": 5,
+                    "type": "equirectangular",
+                    "panorama": "panorama/Scena4.jpg",
+                    "hotSpots": [
+                        {
+                            "pitch": -10,
+                            "yaw": 20,
+                            "type": "scene",
+                            "text": "Roh ulice Václavské náměstí a Opletalova",
+                            "sceneId": "Scena1_rohVO",
+                            "targetYaw": -23,
+                            "targetPitch": 2
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

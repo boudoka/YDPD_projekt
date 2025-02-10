@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+    <div class="button-container">
+        <a href="index.html"><button>Hlavní strana</button></a>
+        <a href="modely.html"><button>Modely</button></a>
+        <a href="panorama.html"><button>Prohlídka</button></a>
+    </div>
+    <h1>Galerie snímků objektu</h1>
+    <h2>Bývalý městský dům U Turků a současný The Flow Building</h2>
+
+    <!-- Image tiles -->
+    <div class="image-tile">
+        <img class="myImg" src="images/fotky/Pohled_1922.jpg" alt="Původní vzhled rohové budovy na adrese Václavské náměstí 47 před rokem 1922, kdy byla přistavěna dvě patra a původní fasáda byla stržena.
+    Zdroj: Flow East">
+    </div>
+    <div class="image-tile">
+        <img class="myImg" src="images/fotky/Pohled_1960.jpg"
+            alt="Václavské náměstí roku 1960, vpravo ústí Opletalovy ulice. Zdroj: UWM Libraries">
+    </div>
+    <div class="image-tile">
+        <img class="myImg" src="images/fotky/Pohled_1961.jpg"
+            alt="Václavské náměstí 1961 a Národním muzeum v pozadí. Zdroj: UWM Libraries">
+    </div>
+    <div class="image-tile">
+        <img class="myImg" src="images/fotky/Pohled_1989.jpg"
+            alt="Prodemokratická demonstrace po oficiálním prvomájovém průvodu na Václavském náměstí v Praze, Československo 1. května 1989. Zdroj: huebner family photos">
+    </div>
+    <div class="image-tile">
+        <img class="myImg" src="images/fotky/Pohled_2012.jpg"
+            alt="Čp. 1601, bývalý městský dům U Turků, Václavské náměstí 47, Opletalova, Nové město, Praha 1, pohled od J. Rok 2012. Zdroj: Národní památkový ústav">
+    </div>
+    <div class="image-tile">
+        <img class="myImg" src="images/fotky/Pohled_2022.jpg"
+            alt="Obchodní centrum Primark, Praha 2022. Zdroj: Jan Kovařík">
+    </div>
+
+    <!-- Modal -->
+    <div class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        // Get all the images with class "myImg"
+        var images = document.getElementsByClassName("myImg");
+
+        // Get the modal
+        var modal = document.querySelector(".modal");
+
+        // Get the <span> element that closes the modal
+        var span = document.querySelector(".close");
+
+        // Get the modal image and caption
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+
+        // Loop through all the images and add event listeners
+        for (var i = 0; i < images.length; i++) {
+            images[i].addEventListener("click", function () {
+                // Display the modal
+                modal.style.display = "block";
+
+                // Set the source and caption for the clicked image
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            });
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        // Close modal if clicked outside of the modal image
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

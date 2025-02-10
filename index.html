@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <link rel="stylesheet" href="styles.css" />
+
+        <title>Hlavní stránka</title>
+    </head>
+    <body>
+        <div class="button-container">
+            <a href="galerie.html"><button>Galerie</button></a>
+            <a href="modely.html"><button>Modely</button></a>
+            <a href="panorama.html"><button>Prohlídka</button></a>
+        </div>
+        <h1>Rekonstrukce zaniklého objektu</h1>
+        <h2>Městský dům U Turků</h2>
+        <p>Dům U Turků, někdy také zvaný U saského dvora, byl původně novorenesanční dům č. p. 1601 na rohu Václavského
+            náměstí (č. o. 47) a Opletalovy ulice (č. o. 1) vedle hotelu Jalta v Praze. Byl postavený podle návrhu Josefa
+            Schulze v roce 1881, později přestavěný kanceláří architekta Bohumíra Kozáka ve stylu Art deco. V roce 2017 byl
+            zdemolován, nahradila ho moderní kancelářská budova The Flow Building.</p>
+        <p>Dům byl někdy nesprávně nazýván jako Kozákův dům, přestože autorství, které v Kozákově případě spočívalo pouze v
+            přestavbě fasády stavby, si architekt Kozák ve svých publikovaných spisech nikdy nenárokoval. Objekt nazývaný
+            Kozákův dům skutečně existuje. Je situován v Růžové ulici 947/8 v Praze 1.</p>
+
+        <h2>Historie</h2>
+        <p>Původně novorenesanční stavba vystavěná na místě starší stavby mezi roky 1880–1881. Fasáda je připisována Josefu
+            Schulzovi. Dům původně sloužil jako rezidence manželů Benešových, v jeho vnitrobloku se nacházel domek pro
+            služebnou. V roce 1920 zakoupila dům Česká chmelařská společnost a využívala jej jako kancelářské sídlo pro
+            svoje úředníky.</p>
+        <p>V roce 1922 byla přistavěna dvě patra a upraveno průčelí (např. původní okenní dvojice při nároží byly nahrazeny
+            průběžnými arkýři) podle návrhu kanceláře architekta Bohumíra Kozáka ve stylu art deco. Autorství stavby si ani
+            po této úpravě fasády žádný z architektů ve svých publikovaných materiálech nenárokoval. V roce 1931 zde sídlila
+            firma Arko-Film, půjčovna a prodejna zvukových filmů, která později přesídlila do Štěpánské ul. 28, majitele
+            Artura Hellera.</p>
+        <p>V roce 1945 obdržela budovu od ministerstva zemědělství redakce Zemědělských novin. Do vedlejší budovy Pražské
+            akciové tiskárny se nastěhovala firma „Brázda”, tiskové, vydavatelské a nakladatelské podniky českých zemědělců,
+            s. r. o. Před rokem 1989 býval na střeše budovy reklamní neonový nápis „Machinoexport, obráběcí stroje" z
+            Bulharska a na budově „Zemědělské noviny”.</p>
+        <p>V roce 1956 vznikl z Opletalovy ulice průjezd do hotelu Jalta.</p>
+
+        <h2>Demolice</h2>
+        <p>V dubnu 2017 vstoupil v platnost demoliční výměr povolující likvidaci domu na Václavském náměstí č. o . 47. V
+            polovině dubna 2017 demolice začala, skončila v srpnu téhož roku. Budovu nahradila prosklená polyfunkční budova
+            nazvaná The Flow Building (předtím pojmenovaná jako Květinový dům). Ta se rozprostírá přes pozemek domu u Turků
+            i dříve zbourané tiskárny v Opletalově ul. Obsahuje tři patra maloobchodních prostor a sedm pater kanceláří.</p>
+        <p class="citation">
+            Zdroj: <a href="https://cs.wikipedia.org/wiki/D%C5%AFm_U_Turk%C5%AF" target="_blank">Dům U Turků (Wikipedie)</a>
+        </p>
+
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Layers.Tree.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet.wms.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/proj4.js"></script>
+        <script src="js/proj4leaflet.js"></script>
+        <script src="data/727181HP_3.js"></script>
+        <script src="mapa.js"></script>
+
+    </body>
+</html>

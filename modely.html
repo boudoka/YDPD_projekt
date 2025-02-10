@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modely</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Times New Roman';
+            margin: 0;
+            overflow-y: auto;
+            background-color: #D1BB9E;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button-menu {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        model-viewer {
+            margin-top: 30px;
+            width: 90%;
+            height: 600px;
+        }
+
+        .hotspot {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: black;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .hotspot[slot="hotspot-opletal"] {
+            --min-hotspot-opacity: 0;
+            background-color: red;
+        }
+
+        .hotspot[slot="hotspot-vaclav"] {
+            --min-hotspot-opacity: 0;
+            background-color: green;
+        }
+
+        .hotspot[slot="hotspot-building"] {
+            --min-hotspot-opacity: 0;
+            background-color: blue;
+        }
+
+        .annotation {
+            background-color: #888888;
+            position: absolute;
+            transform: translate(10px, 10px);
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button-container">
+        <a href="index.html"><button class="button-menu">Hlavní strana</button></a>
+        <a href="galerie.html"><button class="button-menu">Galerie</button></a>
+        <a href="panorama.html"><button class="button-menu">Prohlídka</button></a>
+    </div>
+
+    <model-viewer id="model-viewer" camera-controls touch-action="pan-y" auto-rotate alt="Model budovy"
+        src="models/VaclavakModel.glb" shadow-intensity="1" ar ar-modes="webxr" tone-mapping="aces">
+
+        <button class="hotspot" slot="hotspot-vaclav" data-position="-1 0 1" data-normal="0 1 0">
+            <div class="annotation">Vchod z ul. Václavské náměstí</div>
+        </button>
+
+        <button class="hotspot" slot="hotspot-opletal" data-position="1 0 1.5" data-normal="-0.73 0.05 0.69">
+            <div class="annotation">Vchod z ul. Opletalova</div>
+        </button>
+
+        <button class="hotspot" slot="hotspot-building" data-position="0 1 0" data-normal="-0.07 0.97 0.23">
+            <div class="annotation">Pohled na budovu</div>
+        </button>
+
+
+    </model-viewer>
+
+    <button id="switch-button" onclick="switchSrc()">
+        Změna modelu
+    </button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const modelViewer = document.getElementById("model-viewer");
+    
+            // Define hotspots with their camera settings
+            const hotspots = [
+                {
+                    slot: "hotspot-vaclav",
+                    orbit: "-50deg 85deg 2m",
+                    target: "-1m 0m 1m"
+                },
+                {
+                    slot: "hotspot-opletal",
+                    orbit: "30deg 80deg 2m",
+                    target: "1m 0m 1.5m"
+                },
+                {
+                    slot: "hotspot-building",
+                    orbit: "0deg 90deg 3m",
+                    target: "0m 1m 0m"
+                }
+            ];
+    
+            // Add click event to hotspots
+            document.querySelectorAll(".hotspot").forEach(hotspot => {
+                hotspot.addEventListener("click", function () {
+                    const hotspotData = hotspots.find(h => h.slot === hotspot.slot);
+                    if (hotspotData) {
+                        modelViewer.cameraOrbit = hotspotData.orbit;
+                        modelViewer.cameraTarget = hotspotData.target;
+                        modelViewer.fieldOfView = "30deg";  // Adjust zoom level
+                    }
+                });
+            });
+    
+            // Model switcher logic
+            const src1 = "models/VaclavakModel.glb";
+            const src2 = "models/VaclavakSoucasnost.glb";
+    
+            window.switchSrc = () => {
+                modelViewer.src = modelViewer.src.includes(src1) ? src2 : src1;
+            };
+        });
+    </script>
+    
+
+</body>
+
+</html>
